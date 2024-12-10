@@ -1,3 +1,5 @@
+import { Product } from "../types";
+import { products } from "../utils/constants";
 export class Checkout {
   private items: Map<string, number>;
 
@@ -5,18 +7,27 @@ export class Checkout {
     this.items = new Map();
   }
 
+  // create purchased items map to maintain the scanned product
   scan(item: string) {
-    console.log("scan item", item);
+    // returns either matched product or undefined on unmatched product
+    const product: Product | undefined = products.get(item);
+    // when matching product not found, should throw error
+    if (!product) {
+      throw new Error("Scanned product not found");
+    }
+
+    // map the product by id, if already present increment counter
     this.items.set(item, (this.items.get(item) || 0) + 1);
   }
 
-  total(): number {
+  total(): string {
     let total: number = 0;
     for (const [item, count] of this.items.entries()) {
-      console.log("item", item);
-      console.log("count", count);
-      total += count;
+      const product: Product | undefined = products.get(item);
+      if (product) {
+        total += product.price * count;
+      }
     }
-    return total;
+    return `$${total.toFixed(2)}`;
   }
 }
