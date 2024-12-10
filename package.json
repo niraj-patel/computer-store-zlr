@@ -1,0 +1,23 @@
+{
+    "name": "computer-store-zlr",
+    "version": "1.0.0",
+    "description": "An application to manage order checkout of a computer store",
+    "main": "index.js",
+    "scripts": {
+        "start": "ts-node src/index.ts",
+        "build": "rm -rf dist && tsc",
+        "lint": "eslint .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Niraj Patel",
+    "license": "MIT",
+    "devDependencies": {
+        "@eslint/js": "^9.16.0",
+        "@types/node": "^22.10.1",
+        "eslint": "^9.16.0",
+        "globals": "^15.13.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.17.0"
+    }
+}
