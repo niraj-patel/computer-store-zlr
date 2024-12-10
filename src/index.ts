@@ -1,9 +1,18 @@
 import { Checkout } from "./services/checkout";
 
-const checkout = new Checkout();
+const checkoutCase1 = new Checkout();
+checkoutCase1.scan("atv");
+checkoutCase1.scan("atv");
+checkoutCase1.scan("atv");
+checkoutCase1.scan("vga");
+console.log("totalCase1", checkoutCase1.total());
 
-checkout.scan("atv");
-checkout.scan("atv");
-checkout.scan("atv");
-checkout.scan("vga");
-console.log("total", checkout.total());
+const checkoutCase2 = new Checkout();
+checkoutCase2.scan("atv");
+checkoutCase2.scan("ipd");
+checkoutCase2.scan("ipd");
+checkoutCase2.scan("atv");
+checkoutCase2.scan("ipd");
+checkoutCase2.scan("ipd");
+checkoutCase2.scan("ipd");
+console.log("totalCase2", checkoutCase2.total());
